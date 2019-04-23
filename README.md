@@ -1,31 +1,19 @@
 # Dune
 VM manager for MirageOS unikernels
 
-#### Running Dune locally on Ubuntu
+#### Running Dune locally on mac
 ###### Install required packages from Ubuntu repositories
 
 ```sh
-$ sudo apt-get update
-$ sudo apt-get install python3-pip python3-dev python3-virtualenv pylint
-$ sudo apt-get install opam
+$ brew install opam redis python
 ```
 
 ###### Install and launch Redis Server
 
 ```sh
-$ wget http://download.redis.io/redis-stable.tar.gz
-$ tar xvzf redis-stable.tar.gz
-$ cd redis-stable
-$ make
-$ sudo make install
 $ redis-server
 ```
 
-###### Create and activate a Python 3 virtual environment with `virtualenv`
-```sh
-$ virtualenv -p python3 ~/env
-$ source ~/env/bin/activate
-```
 
 ###### Initialize OPAM and install MirageOS
 ```sh
@@ -36,8 +24,8 @@ $ opam install mirage
 
 ###### Install Dune API requirements
 ```sh
-$ git clone https://github.com/onyb/dune
-$ cd dune
+$ git clone https://github.com/xingeT/Man
+$ cd Man
 $ pip install -r requirements.txt
 ```
 
@@ -58,7 +46,7 @@ $ gulp
 The AngularJS dashboard is served at `http://localhost:8888`
 
 #### Tech Stack
-###### Dune Core
+###### Man Core
 - Python 3
 - [OCaml](http://ocaml.org)
 - [Mirage](http://mirage.io)

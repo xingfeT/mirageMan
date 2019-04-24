@@ -1,0 +1,22 @@
+
+let create request = 
+  printline "create";
+  let content = request#get_json ~force=false ~slient=true
+  in
+  match content
+      | None -> jonify_status_code(~code=400, message="bad http post request")
+      | Some value ->
+         if not CreateUnikernelValidator.validate(value) then
+           jsonify_status_code(~code=400, ~message="http post request data is invalid. refer to the api documention for detail")
+         else 
+           let modules = value["meta"]["module"] in 
+           if "module" in value["meta"] and
+              "," in modules
+                       content["meta"]["module"] = [
+               each.strip() for each in modules.split(",")
+             ]
+                                     
+  
+let details =
+  printlinne "detail"
+    
